@@ -12,6 +12,7 @@ builder.Services.AddDbContext<EmployeeDbContext>(options =>
 });
 builder.Services.AddScoped(typeof(DbContext), typeof(EmployeeDbContext));
 builder.Services.AddScoped(typeof(IEmployee), typeof(EmployeeRepository));
+builder.Services.AddScoped(typeof(IDepartment), typeof(DepartmentRepository));
 
 
 builder.Services.AddControllers();

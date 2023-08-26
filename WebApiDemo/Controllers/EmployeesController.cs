@@ -2,6 +2,7 @@
 using Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApiDemo.Controllers
 {
@@ -26,5 +27,23 @@ namespace WebApiDemo.Controllers
         { 
         return _employeeService.GetAll();
         }
+        [HttpDelete]
+        public Task<int> Delete(int id)
+        {
+            return _employeeService.Delete(id);
+        }
+
+        [HttpGet("{id}")]
+        public Task<Employee> GetById(int id)
+        {
+            return _employeeService.GetEmployee(id);
+        }
+
+        [HttpPut("{id}")]
+        public bool PutEmployee(int id, Employee employee)
+        {
+            return _employeeService.PutEmployee(id, employee);
+        }
+
     }
 }
